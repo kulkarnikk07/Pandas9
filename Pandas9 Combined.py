@@ -10,3 +10,9 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
 
 # 2 Problem 2 : Customers Placing the Largest Number of Orders ( https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/ ) 
 
+import pandas as pd
+
+def largest_orders(orders: pd.DataFrame) -> pd.DataFrame:
+    df = orders['customer_number'].mode()
+    answer = orders[orders['customer_number'].isin(df)]
+    return answer[['customer_number']][0 : 1]
